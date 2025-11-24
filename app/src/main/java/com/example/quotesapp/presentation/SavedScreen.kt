@@ -18,6 +18,6 @@ fun SavedScreen() {
             .padding(16.dp)
     ) {
         Text("Saved Screen", style = MaterialTheme.typography.headlineMedium)
-        Text("Configure your app ")
+        Text("You are not Saved Any Quote")
     }
 }
