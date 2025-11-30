@@ -1,6 +1,8 @@
 package com.example.quotesapp.util
 
 import android.content.Context
+import android.widget.Toast
+import android.widget.Toolbar
 import androidx.annotation.RawRes
 import com.example.quotesapp.presentation.data.CategoriesItem
 import org.json.JSONObject
@@ -36,5 +38,11 @@ fun loadQuotesFromRaw(context: Context, @RawRes resourceId: Int): List<Categorie
         )
     }
     return quotesList
+}
+
+
+fun Context.toastMessage(message :String){
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+
 }
 

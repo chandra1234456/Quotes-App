@@ -4,14 +4,20 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-11-15T16:47:50.926426900Z">
+        <DropdownSelection timestamp="2025-11-30T16:26:44.698949500Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\balachandra.d\.android\avd\Pixel_9_Pro_Fold.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\balachandra.d\.android\avd\Medium_Phone.avd" />
             </handle>
           </Target>
         </DropdownSelection>
         <DialogSelection />
+      </SelectionState>
+      <SelectionState runConfigName="CategoryCardNew">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="PreviewCategoryCardNew">
+        <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
   </component>
