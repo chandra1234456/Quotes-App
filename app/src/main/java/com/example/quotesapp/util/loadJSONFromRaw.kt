@@ -2,7 +2,6 @@ package com.example.quotesapp.util
 
 import android.content.Context
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.annotation.RawRes
 import com.example.quotesapp.presentation.data.CategoriesItem
 import org.json.JSONObject

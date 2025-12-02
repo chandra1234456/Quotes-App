@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -16,20 +15,20 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -37,25 +36,24 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
-import com.example.quotesapp.LightYellow
-import com.example.quotesapp.SoftAmber
 import com.example.quotesapp.categoryColors
 import com.example.quotesapp.iconColors
 import com.example.quotesapp.icons
 import com.example.quotesapp.labels
-import com.example.quotesapp.latestQuotes
 import com.example.quotesapp.photoUrls
-import com.example.quotesapp.presentation.data.Quote
-import com.example.quotesapp.trendingQuotes
+import com.example.quotesapp.presentation.viemodel.QuotesViewModel
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier,viewModel: QuotesViewModel = viewModel()) {
+
+    val uiTrendingState by viewModel.uiTrendingState.collectAsState()
+    val uiLatestState by viewModel.uiLatestState.collectAsState()
+
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
@@ -94,11 +92,13 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                items(latestQuotes) { quote ->
+                itemsIndexed(uiTrendingState.quotes) { index, quote ->
                     QuoteCard(
                         quote = quote.text,
                         quotesAuthor = quote.author,
-                        bgColor = quote.quoteBgColor
+                        bgColor = quote.quoteBgColor,
+                        isSelected = quote.isQuoteSelected,
+                        onFavoriteClick = { viewModel.toggleTrendingTheFavorite(index) }
                     )
                 }
             }
@@ -127,11 +127,13 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                items(trendingQuotes) { quote ->
+                itemsIndexed(uiLatestState.quotes) { index, quote ->
                     QuoteCard(
                         quote = quote.text,
                         quotesAuthor = quote.author,
-                        bgColor = quote.quoteBgColor
+                        bgColor = quote.quoteBgColor,
+                        isSelected = quote.isQuoteSelected,
+                        onFavoriteClick = { viewModel.toggleLatestTheFavorite(index) }
                     )
                 }
             }
@@ -163,7 +165,9 @@ fun FeaturedImageCard(
 fun QuoteCard(
     quote: String = "Your quote goes here...",
     quotesAuthor: String = "Author Name",
-    bgColor:Color
+    bgColor: Color,
+    isSelected : Boolean,
+    onFavoriteClick: (Boolean) -> Unit
 ) {
     Card(
         modifier = Modifier
@@ -192,7 +196,7 @@ fun QuoteCard(
                     modifier = Modifier
                         .size(21.dp)
                         .clip(CircleShape)
-                        /*.background(Color.LightGray)*/
+                    /*.background(Color.LightGray)*/
                 )
 
                 // Like + Share on RIGHT
@@ -201,7 +205,10 @@ fun QuoteCard(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Icon(
-                        imageVector = Icons.Default.FavoriteBorder,
+                        modifier = Modifier.clickable {
+                            onFavoriteClick(isSelected)
+                        },
+                        imageVector = if (isSelected) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                         contentDescription = "Favorite",
                         tint = Color.White
                     )

@@ -71,5 +71,6 @@ dependencies {
      implementation("androidx.compose.material:material-icons-extended")
 
     implementation(libs.androidx.compose.material3.adaptive.navigation.suite)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
 
 }
