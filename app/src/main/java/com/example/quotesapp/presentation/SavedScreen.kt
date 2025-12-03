@@ -42,7 +42,8 @@ import com.example.quotesapp.presentation.viemodel.QuotesViewModel
 fun SavedScreen(viewModel: QuotesViewModel = viewModel()) {
     val uiTrendingState by viewModel.uiTrendingState.collectAsState()
     val favTrendingQuotes = uiTrendingState.quotes.filter { it.isQuoteSelected }
-    Log.d("TAG", "SavedScreen: $favTrendingQuotes")
+    Log.d("TAG", "favTrendingQuotes: $favTrendingQuotes")
+    Log.d("TAG", "uiTrendingState: $uiTrendingState")
 
     val uiLatestState by viewModel.uiLatestState.collectAsState()
     val favLatestQuotes = uiLatestState.quotes.filter { it.isQuoteSelected }

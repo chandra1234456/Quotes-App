@@ -49,8 +49,10 @@ import com.example.quotesapp.photoUrls
 import com.example.quotesapp.presentation.viemodel.QuotesViewModel
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier,viewModel: QuotesViewModel = viewModel()) {
-
+fun HomeScreen(
+    modifier: Modifier = Modifier,
+    viewModel: QuotesViewModel = viewModel()
+) {
     val uiTrendingState by viewModel.uiTrendingState.collectAsState()
     val uiLatestState by viewModel.uiLatestState.collectAsState()
 
@@ -108,7 +110,7 @@ fun HomeScreen(modifier: Modifier = Modifier,viewModel: QuotesViewModel = viewMo
         item {
             LazyRow(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 items(7) { index ->
                     CategoryCard(
