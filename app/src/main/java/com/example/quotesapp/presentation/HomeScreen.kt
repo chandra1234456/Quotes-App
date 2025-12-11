@@ -169,7 +169,7 @@ fun QuoteCard(
     quotesAuthor: String = "Author Name",
     bgColor: Color,
     isSelected : Boolean,
-    onFavoriteClick: (Boolean) -> Unit
+    onFavoriteClick: () -> Unit
 ) {
     Card(
         modifier = Modifier
@@ -208,7 +208,7 @@ fun QuoteCard(
                 ) {
                     Icon(
                         modifier = Modifier.clickable {
-                            onFavoriteClick(isSelected)
+                            onFavoriteClick()
                         },
                         imageVector = if (isSelected) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                         contentDescription = "Favorite",

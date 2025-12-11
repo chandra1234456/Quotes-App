@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
@@ -22,6 +22,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -40,13 +41,14 @@ import com.example.quotesapp.presentation.viemodel.QuotesViewModel
 
 @Composable
 fun SavedScreen(viewModel: QuotesViewModel = viewModel()) {
-    val uiTrendingState by viewModel.uiTrendingState.collectAsState()
-    val favTrendingQuotes = uiTrendingState.quotes.filter { it.isQuoteSelected }
-    Log.d("TAG", "favTrendingQuotes: $favTrendingQuotes")
+    val uiTrendingState by viewModel.favoriteQuotes.collectAsState()
     Log.d("TAG", "uiTrendingState: $uiTrendingState")
-
-    val uiLatestState by viewModel.uiLatestState.collectAsState()
-    val favLatestQuotes = uiLatestState.quotes.filter { it.isQuoteSelected }
+    LaunchedEffect(Unit) {
+        if (uiTrendingState.isEmpty()) {
+            viewModel.favoriteQuotes.value
+            Log.d("TAG", "SavedScreen: ${viewModel.favoriteQuotes.value}")
+        }
+    }
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -63,8 +65,8 @@ fun SavedScreen(viewModel: QuotesViewModel = viewModel()) {
             )
         }
         // List of saved quotes
-        items(favTrendingQuotes) { quote ->
-            QuotesData(quote)
+        itemsIndexed(uiTrendingState) { _, quote ->
+            QuotesData(quoteItem = quote)
         }
     }
 
