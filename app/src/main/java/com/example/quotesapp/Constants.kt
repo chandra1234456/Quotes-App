@@ -84,22 +84,7 @@ val SoftMintGreen   = Color(0xFF8CE3A8)
 val SoftLeafGreen   = Color(0xFFA5D767)
 val SoftSand        = Color(0xFFDDBF8C)
 
-val trendingQuotes = listOf(
-    Quote("Success is not final; failure is not fatal.", "Winston Churchill",false,SoftAmber),
-    Quote("Do what you can, with what you have, where you are.", "Theodore Roosevelt",false,SoftCoral),
-    Quote("The future depends on what you do today.", "Mahatma Gandhi",false,SoftRose),
-    Quote("Believe you can and you're halfway there.", "Theodore Roosevelt",false,SoftLilac),
-    Quote("Your life does not get better by chance, it gets better by change.", "Jim Rohn",false,SoftPurple)
-)
 
-
-val latestQuotes = listOf(
-    Quote("Consistency is the quiet bridge between dreams and results.", "Ava Collins",false,SoftSkyBlue),
-    Quote("Your growth begins the moment comfort ends.", "Liam Hart",false,SoftTeal),
-    Quote("Small progress is still progress—celebrate it.", "Nova Reed",false,SoftMintGreen),
-    Quote("The best version of you is built, not found.", "Evan Blake",false,SoftLeafGreen),
-    Quote("Your mindset writes the story long before your actions do.", "Mira Dalton",false,SoftSand)
-)
 
 
 

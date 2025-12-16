@@ -7,4 +7,5 @@ data class Quote(
     val author: String,
     val isQuoteSelected: Boolean = false,
     val quoteBgColor : Color,
+    val quoteType :String
 )

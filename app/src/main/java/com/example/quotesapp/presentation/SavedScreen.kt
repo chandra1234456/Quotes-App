@@ -1,6 +1,5 @@
 package com.example.quotesapp.presentation
 
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,7 +21,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -41,14 +39,7 @@ import com.example.quotesapp.presentation.viemodel.QuotesViewModel
 
 @Composable
 fun SavedScreen(viewModel: QuotesViewModel = viewModel()) {
-    val uiTrendingState by viewModel.favoriteQuotes.collectAsState()
-    Log.d("TAG", "uiTrendingState: $uiTrendingState")
-    LaunchedEffect(Unit) {
-        if (uiTrendingState.isEmpty()) {
-            viewModel.favoriteQuotes.value
-            Log.d("TAG", "SavedScreen: ${viewModel.favoriteQuotes.value}")
-        }
-    }
+    val favoriteQuotes by viewModel.favoriteQuotes.collectAsState()
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -65,8 +56,8 @@ fun SavedScreen(viewModel: QuotesViewModel = viewModel()) {
             )
         }
         // List of saved quotes
-        itemsIndexed(uiTrendingState) { _, quote ->
-            QuotesData(quoteItem = quote)
+        itemsIndexed(favoriteQuotes) { index, quote ->
+            QuotesData(quote)
         }
     }
 
@@ -102,7 +93,7 @@ fun QuotesData(quoteItem: Quote) {
                         tint = Color.Gray
                     )
                     Text(
-                        text = "quoteItem.quoteType",
+                        text = quoteItem.quoteType,
                         style = MaterialTheme.typography.labelLarge,
                         color = Color(0xFF6200EE) // primary accent color
                     )
@@ -110,7 +101,7 @@ fun QuotesData(quoteItem: Quote) {
                 Spacer(modifier = Modifier.height(12.dp))
                 // Quote Text
                 Text(
-                    text = "quoteItem.quote",
+                    text = quoteItem.text,
                     style = MaterialTheme.typography.titleMedium,
                     color = Black,
                     textAlign = TextAlign.Start

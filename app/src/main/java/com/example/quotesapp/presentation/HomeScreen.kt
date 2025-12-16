@@ -50,8 +50,8 @@ import com.example.quotesapp.presentation.viemodel.QuotesViewModel
 
 @Composable
 fun HomeScreen(
-    modifier: Modifier = Modifier,
-    viewModel: QuotesViewModel = viewModel()
+    viewModel: QuotesViewModel = viewModel(),
+    modifier: Modifier = Modifier
 ) {
     val uiTrendingState by viewModel.uiTrendingState.collectAsState()
     val uiLatestState by viewModel.uiLatestState.collectAsState()

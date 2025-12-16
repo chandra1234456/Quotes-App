@@ -42,11 +42,12 @@ import com.example.quotesapp.R
 import com.example.quotesapp.iconColors
 import com.example.quotesapp.labels
 import com.example.quotesapp.presentation.data.CategoriesItem
+import com.example.quotesapp.presentation.viemodel.QuotesViewModel
 import com.example.quotesapp.util.loadQuotesFromRaw
 import com.example.quotesapp.util.toastMessage
 
 @Composable
-fun ExploreScreen() {
+fun ExploreScreen(viewModel: QuotesViewModel) {
     val context = LocalContext.current
     val quotes = remember { loadQuotesFromRaw(context, R.raw.quotes) } // your JSON file
     var selectedCategory by remember { mutableStateOf<String?>(null) }

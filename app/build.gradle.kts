@@ -73,5 +73,10 @@ dependencies {
 
     implementation(libs.androidx.compose.material3.adaptive.navigation.suite)
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
-
+// Jetpack Compose
+    implementation("androidx.compose.ui:ui:1.10.0")
+    implementation("androidx.compose.material:material:1.10.0")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.10.0")
+// Compose Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.3")
 }
