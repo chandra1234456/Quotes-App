@@ -14,21 +14,26 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Bedtime
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material.icons.outlined.WbSunny
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -53,6 +58,7 @@ fun HomeScreen(
     viewModel: QuotesViewModel = viewModel(),
     modifier: Modifier = Modifier
 ) {
+    var isSelected by remember { mutableStateOf(false) }
     val uiTrendingState by viewModel.uiTrendingState.collectAsState()
     val uiLatestState by viewModel.uiLatestState.collectAsState()
 
@@ -62,11 +68,26 @@ fun HomeScreen(
             .padding(16.dp)
     ) {
         item {
-            Text(
-                text = "Explore",
-                fontSize = 28.sp,
-                fontFamily = FontFamily.Serif
-            )
+            Row(modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween) {
+                Text(
+                    text = "Explore",
+                    fontSize = 28.sp,
+                    fontFamily = FontFamily.Serif
+                )
+                IconButton(onClick = {
+                    isSelected = !isSelected
+                }) {
+                    Icon(
+                        imageVector = if (isSelected)
+                            Icons.Outlined.WbSunny
+                        else
+                            Icons.Filled.Bedtime,
+                        contentDescription = "Favorite",
+                        tint = Color.Black
+                    )
+                }
+            }
             Text(
                 text = "Awesome quotes from our Community",
                 fontSize = 18.sp,
