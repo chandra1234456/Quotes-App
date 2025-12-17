@@ -9,12 +9,13 @@ The app is built with **Kotlin**, follows modern Android development practices, 
 ---
 
 <br/>
-<p>
-  <img src="app/assets/screenshots/home_screen.png" width="200" alt=""/>
-  <img src="app/assets/screenshots/explore_screen.png" width="200" alt=""/>
-  <img src="app/assets/screenshots/saved_screen.png" width="200" alt=""/>
+<p align="center">
+  <img src="app/src/main/assets/screenshots/home_screen.png" width="200" alt="Home Screen"/>
+  <img src="app/src/main/assets/screenshots/explore_screen.png" width="200" alt="Explore Screen"/>
+  <img src="app/src/main/assets/screenshots/saved_screen.png" width="200" alt="Saved Screen"/>
 </p>
-<br />
+<br/>
+
 
 ---
 ## 🛠️ Built With
