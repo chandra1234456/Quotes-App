@@ -8,6 +8,15 @@ The app is built with **Kotlin**, follows modern Android development practices, 
 
 ---
 
+<br/>
+<p>
+  <img src="app/src/main/assets/screenshots/home_screen.png.jpg" width="200" alt=""/>
+  <img src="app/src/main/assets/screenshots/explore_screen.png.jpg" width="200" alt=""/>
+  <img src="app/src/main/assets/screenshots/saved_screen.png.jpg" width="200" alt=""/>
+</p>
+
+<br />
+
 ## 🛠️ Built With
 
 - **Kotlin**
@@ -67,4 +76,4 @@ Jetpack Navigation Compose is used to:
 ### Run the App
 1. Clone the repository
    ```bash
-   git clone https://github.com/your-username/simple-quotes-app.git
+   https://github.com/chandra1234456/Quotes-App.git
