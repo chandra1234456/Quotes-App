@@ -1,15 +1,14 @@
 package com.example.quotesapp
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ShowChart
 import androidx.compose.material.icons.filled.Diversity1
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Security
-import androidx.compose.material.icons.filled.ShowChart
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.ui.graphics.Color
-import com.example.quotesapp.presentation.data.Quote
 
 
 object Constants {
@@ -34,7 +33,7 @@ val labels = listOf("Life", "Motivation", "Success", "Wisdom", "Love","Courage",
 val icons = listOf(
     Icons.Default.Favorite,
     Icons.Default.Star,
-    Icons.Default.ShowChart,
+    Icons.AutoMirrored.Filled.ShowChart,
     Icons.Default.Info,
     Icons.Default.FavoriteBorder,
     Icons.Default.Security,
