@@ -15,11 +15,15 @@ The app is built with **Kotlin**, follows modern Android development practices, 
   <img src="app/src/main/assets/screenshots/saved_screen.png" width="200" alt="Saved Screen"/>
 </p>
 <br/>
+---
+
+## Foldable & Rotate Device 
+
 <br/>
 <p align="center">
-<img src="app/src/main/assets/screenshots/foldable_device.png" width="200" alt="Foldable"/>
-  <img src="app/src/main/assets/screenshots/navigation_rail_one.png" width="200" alt="Navigation Rail One"/>
-  <img src="app/src/main/assets/screenshots/navigation_rail_two.png" width="200" alt="Navigation Rail Two"/>
+<img src="app/src/main/assets/screenshots/foldable_device.png" width="200"  alt="Foldable"/>
+  <img src="app/src/main/assets/screenshots/navigation_rail_one.png" width="200" height="200" alt="Navigation Rail One"/>
+  <img src="app/src/main/assets/screenshots/navigation_rail_two.png" width="200" height="200" alt="Navigation Rail Two"/>
 </p>
 <br/>
 
@@ -32,6 +36,7 @@ The app is built with **Kotlin**, follows modern Android development practices, 
 - **StateFlow** – Reactive state management
 - **Jetpack Navigation (Compose)** – Screen navigation
 - **MVVM Architecture**
+- **Side Navigation Rail**
 
 ---
 
