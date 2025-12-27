@@ -13,9 +13,13 @@ The app is built with **Kotlin**, follows modern Android development practices, 
   <img src="app/src/main/assets/screenshots/home_screen.png" width="200" alt="Home Screen"/>
   <img src="app/src/main/assets/screenshots/explore_screen.png" width="200" alt="Explore Screen"/>
   <img src="app/src/main/assets/screenshots/saved_screen.png" width="200" alt="Saved Screen"/>
-<img src="app/src/main/assets/screenshots/foldable.png.png" width="200" alt="Foldable"/>
-  <img src="app/src/main/assets/screenshots/navigationrailOne.png.png" width="200" alt="Navigation Rail One"/>
-  <img src="app/src/main/assets/screenshots/navigationrailtwo.png.png" width="200" alt="Navigation Rail One"/>
+</p>
+<br/>
+<br/>
+<p align="center">
+<img src="app/src/main/assets/screenshots/foldable_device.png" width="200" alt="Foldable"/>
+  <img src="app/src/main/assets/screenshots/navigation_rail_one.png" width="200" alt="Navigation Rail One"/>
+  <img src="app/src/main/assets/screenshots/navigation_rail_two.png" width="200" alt="Navigation Rail Two"/>
 </p>
 <br/>
 
