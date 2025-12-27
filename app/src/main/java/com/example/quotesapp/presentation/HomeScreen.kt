@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -40,12 +41,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
+import com.example.quotesapp.R
 import com.example.quotesapp.categoryColors
 import com.example.quotesapp.iconColors
 import com.example.quotesapp.icons
@@ -56,7 +59,7 @@ import com.example.quotesapp.presentation.viemodel.QuotesViewModel
 @Composable
 fun HomeScreen(
     viewModel: QuotesViewModel = viewModel(),
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     var isSelected by remember { mutableStateOf(false) }
     val uiTrendingState by viewModel.uiTrendingState.collectAsState()
@@ -65,7 +68,7 @@ fun HomeScreen(
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(6.dp)
     ) {
         item {
             Row(modifier = Modifier.fillMaxWidth(),
@@ -83,8 +86,7 @@ fun HomeScreen(
                             Icons.Outlined.WbSunny
                         else
                             Icons.Filled.Bedtime,
-                        contentDescription = "Favorite",
-                        tint = Color.Black
+                        contentDescription = "Favorite"
                     )
                 }
             }
@@ -109,7 +111,7 @@ fun HomeScreen(
             }
         }
 
-        item { SubHeaders("Latest Quotes", "View All") {} }
+        item { SubHeaders("Latest Quotes", stringResource(R.string.view_all)) {} }
         item {
             LazyRow(
                 modifier = Modifier.fillMaxWidth(),
@@ -127,7 +129,7 @@ fun HomeScreen(
             }
         }
 
-        item { SubHeaders("Categories", "View All") {} }
+        item { SubHeaders("Categories", stringResource(R.string.view_all)) {} }
         item {
             LazyRow(
                 modifier = Modifier.fillMaxWidth(),
@@ -144,7 +146,7 @@ fun HomeScreen(
             }
         }
 
-        item { SubHeaders("Trending Quotes", "View All") {} }
+        item { SubHeaders("Trending Quotes", stringResource(R.string.view_all)) {} }
         item {
             LazyRow(
                 modifier = Modifier.fillMaxWidth(),
@@ -303,6 +305,7 @@ fun CategoryCard(
             Text(
                 text = bottomText,
                 fontSize = 13.sp,
+                color = Color.White,
                 fontWeight = FontWeight.Medium,
                 fontFamily = FontFamily.SansSerif,
             )
@@ -325,14 +328,12 @@ fun SubHeaders(
     ) {
         Text(
             text = startText,
-            color = Color.Black,
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold,
             fontFamily = FontFamily.SansSerif
         )
         Text(
             text = endText,
-            color = Color(0xFF1976D2),
             fontSize = 14.sp,
             fontFamily = FontFamily.SansSerif,
             fontWeight = FontWeight.Bold,

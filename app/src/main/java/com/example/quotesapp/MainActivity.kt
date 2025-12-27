@@ -12,12 +12,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.quotesapp.navigation.AppNavHost
 import com.example.quotesapp.navigation.BottomTabBar
 import com.example.quotesapp.navigation.SideNavigationRail
-import com.example.quotesapp.presentation.viemodel.QuotesViewModel
 import com.example.quotesapp.ui.theme.QuotesAppTheme
 
 

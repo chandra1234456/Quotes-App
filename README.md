@@ -13,6 +13,9 @@ The app is built with **Kotlin**, follows modern Android development practices, 
   <img src="app/src/main/assets/screenshots/home_screen.png" width="200" alt="Home Screen"/>
   <img src="app/src/main/assets/screenshots/explore_screen.png" width="200" alt="Explore Screen"/>
   <img src="app/src/main/assets/screenshots/saved_screen.png" width="200" alt="Saved Screen"/>
+<img src="app/src/main/assets/screenshots/foldable.png.png" width="200" alt="Foldable"/>
+  <img src="app/src/main/assets/screenshots/navigationrailOne.png.png" width="200" alt="Navigation Rail One"/>
+  <img src="app/src/main/assets/screenshots/navigationrailtwo.png.png" width="200" alt="Navigation Rail One"/>
 </p>
 <br/>
 
@@ -72,6 +75,12 @@ Jetpack Navigation Compose is used to:
 ### Prerequisites
 - Android Studio (latest version recommended)
 - Android SDK
+
+
+### Feature Improvements
+- Dark Theme & System Theme & Light Theme
+- Adding Good Font Styles
+
 
 
 ### Run the App

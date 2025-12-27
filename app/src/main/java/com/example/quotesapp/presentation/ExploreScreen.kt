@@ -58,7 +58,7 @@ fun ExploreScreen(viewModel: QuotesViewModel) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(6.dp)
     ) {
         Text(
             "Explore Categories",

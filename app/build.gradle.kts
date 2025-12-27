@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.appcompat)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -64,9 +65,6 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.7.0") // Use the latest stable version
     //Nav-graph
     implementation("androidx.navigation:navigation-compose:2.9.6")
-    //Window Manager
-    implementation("androidx.window:window:1.5.0")
-    implementation("androidx.window:window-core:1.5.0")
     // Use the latest BOM version
     implementation(platform("androidx.compose:compose-bom:2025.10.01"))
      implementation("androidx.compose.material:material-icons-extended")
@@ -74,9 +72,5 @@ dependencies {
     implementation(libs.androidx.compose.material3.adaptive.navigation.suite)
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
 // Jetpack Compose
-    implementation("androidx.compose.ui:ui:1.10.0")
-    implementation("androidx.compose.material:material:1.10.0")
     implementation("androidx.compose.ui:ui-tooling-preview:1.10.0")
-// Compose Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.3")
 }
